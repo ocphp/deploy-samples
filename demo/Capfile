@@ -1,0 +1,16 @@
+load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+
+# Uncomment if you are using Rails' asset pipeline
+#load 'deploy/assets'
+
+Dir['vendor/gems/*/recipes/*.rb','vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
+
+require 'rubygems'
+require 'railsless-deploy'
+require 'capistrano/ext/multistage'
+
+load File.dirname(__FILE__) + '/../branch.rb'
+load File.dirname(__FILE__) + '/../drupal.rb'
+load File.dirname(__FILE__) + '/../apache.rb'
+
+load 'config/deploy' # remove this line to skip loading any of the default tasks
