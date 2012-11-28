@@ -6,6 +6,7 @@ set :domains, ["default"]
 
 # Use git for deployment
 set :scm, :git
+set :deploy_via, :remote_cache
 
 # Multistage support - see config/deploy/[STAGE].rb for specific configs
 # set :default_stage, "development"
